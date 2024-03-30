@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/~avzaman/public_html/vendor/autoload.php';
+require_once '/home/avzaman/public_html/vendor/autoload.php';
 
 $uri = "mongodb://localhost:27017";
 $dbName = "testdb";
