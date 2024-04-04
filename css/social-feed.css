@@ -1,0 +1,65 @@
+/* styles.css */
+
+/* Header */
+.logged-in {
+    color: green;
+}
+
+.guest {
+    color: orange;
+}
+
+.logout {
+    margin-top: 10px;
+}
+
+/* Post Form */
+.post-form label {
+    display: block;
+}
+
+.post-form input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Post */
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.post-header a {
+    color: blue;
+    text-decoration: none;
+}
+
+.likes {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* Like Form */
+.like-form {
+    margin-top: 10px;
+}
+
+.like-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin-right: 5px;
+    text-decoration: none;
+    color: #007bff;
+}

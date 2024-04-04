@@ -2,11 +2,15 @@
 
 /* Header */
 .logged-in {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
 }
 
 .user-profile {
     font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .user-home-page {
@@ -15,34 +19,37 @@
 
 /* Post */
 .post {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
+    border: 2px solid #333;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .post-info a {
-    color: blue;
+    color: #007bff;
     text-decoration: none;
 }
 
 .post-content {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
 }
 
 .likes {
     font-style: italic;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 /* Message */
 .guest-message {
     color: red;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .liked-message {
     color: green;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 /* Buttons */
@@ -51,9 +58,16 @@
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 15px;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.like-button:hover,
+.delete-button:hover {
+    background-color: #0056b3;
 }
 
 .delete-button {
@@ -62,11 +76,16 @@
 
 /* Pagination */
 .pagination {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .pagination a {
-    margin-right: 5px;
+    margin-right: 10px;
     text-decoration: none;
     color: #007bff;
+    font-size: 1.1em;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
 }
