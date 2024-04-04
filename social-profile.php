@@ -1,6 +1,5 @@
 <?php
-
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $uri = "mongodb://localhost:27017";
 $db = 'CPS4881';
