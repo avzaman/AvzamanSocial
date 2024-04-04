@@ -52,7 +52,7 @@ try {
             'limit' => 10]
     );
 
-    if($cursor->count() == 0){
+    if(!isset($cursor)){
         header("Location: social-feed.php");
         exit();
     }
