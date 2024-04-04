@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Feed</title>
+    <link rel="stylesheet" href="css/social-feed.css">
+</head>
+<body>
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -98,3 +107,6 @@ try {
 } catch (Exception $e) {
     echo "Failed to connect to MongoDB: " . $e->getMessage();
 }
+?>
+</body>
+</html>

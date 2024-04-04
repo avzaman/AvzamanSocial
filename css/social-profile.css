@@ -1,0 +1,72 @@
+/* social-profile.css */
+
+/* Header */
+.logged-in {
+    margin-bottom: 10px;
+}
+
+.user-profile {
+    font-weight: bold;
+}
+
+.user-home-page {
+    color: green;
+}
+
+/* Post */
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.post-info a {
+    color: blue;
+    text-decoration: none;
+}
+
+.post-content {
+    margin-bottom: 10px;
+}
+
+.likes {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* Message */
+.guest-message {
+    color: red;
+    margin-top: 5px;
+}
+
+.liked-message {
+    color: green;
+    margin-top: 5px;
+}
+
+/* Buttons */
+.like-button,
+.delete-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin-right: 5px;
+    text-decoration: none;
+    color: #007bff;
+}
