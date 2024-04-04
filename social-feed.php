@@ -14,7 +14,7 @@ if (isset($_COOKIE['user'])) {
     echo "<a href='social-logout.php'>Logout</a><br><br>";
 
     // if a user is logged in allow them to create a post
-    echo "<form action='post.php' method='post'>";
+    echo "<form action='social-post.php' method='post'>";
     echo "<label for='textbox'>Enter post text:</label>";
     echo "<input type='text' name='content' required><br><br>";
     echo "<input type='submit' value='Post!'></form>";
