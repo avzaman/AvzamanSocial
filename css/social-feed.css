@@ -1,5 +1,10 @@
 /* social-feed.css */
 
+/* Add font-family property to body selector */
+body {
+    font-family: Arial, sans-serif; /* Change font family to Arial or any sans-serif font */
+}
+
 /* Header */
 .logged-in {
     color: green;
@@ -92,6 +97,7 @@
     background-image: linear-gradient(45deg, #f12711, #f5af19, #f5af19, #f12711);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
+    z-index: -1; /* Ensure the gradient background is behind the content */
 }
 
 @keyframes gradientBG {

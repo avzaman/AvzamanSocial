@@ -1,9 +1,16 @@
-/* social-profile.css */
+/* social-feed.css */
+
+/* Add font-family property to body selector */
+body {
+    font-family: Arial, sans-serif; /* Change font family to Arial or any sans-serif font */
+}
 
 /* Header */
 .logged-in {
+    color: green;
+    font-size: 1.5em;
     margin-bottom: 20px;
-    font-size: 1.2em;
+    text-transform: uppercase;
 }
 
 .user-profile {
