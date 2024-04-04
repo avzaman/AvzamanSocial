@@ -52,6 +52,11 @@ try {
             'limit' => 10]
     );
 
+    if($cursor->count() == 0){
+        header("Location: social-feed.php");
+        exit();
+    }
+
     foreach ($cursor as $document) {
         $creator = $document['creator'];
         $content = $document['content'];
@@ -62,7 +67,7 @@ try {
         if ($userHomePage) {
             echo "<form action='social-delete.php' method='post'>";
         } else {
-            echo "<form action='social-like.php' method='post'>";
+            echo "<form action='social-like.php?profile=".$profileToLoad."' method='post'>";
         }
         echo "<div class='post-info'>Post by: <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a></div>";
         echo "<div class='post-content'><span style='color: blue;'>" . $content . "</span></div>";

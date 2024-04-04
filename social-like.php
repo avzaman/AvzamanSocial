@@ -5,6 +5,8 @@ $uri = "mongodb://localhost:27017";
 
 $username = $_COOKIE["user"];
 $pid = $_POST["postid"];
+$likedFromProf = false;
+
 
 try {
     $client = new MongoDB\Client($uri);
@@ -15,6 +17,11 @@ try {
         ['_id' => new MongoDB\BSON\ObjectID($pid)],
         ['$push' => ['likes' => $username]]
     );
+
+    if(isset($_GET["profile"])){
+        header("Location: social-profile.php?profile=".$_GET["profile"]);
+        exit();
+    }
 
     header("Location: social-feed.php");
     exit();
