@@ -68,7 +68,7 @@ try {
         echo "<div class='post'>";
         echo "<p class='post-header'>Post by: <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a></p>";
         echo "<p class='post-content'>" . $content . "</p>";
-        echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
+        
         echo "<p class='likes'>Likes: " . $likescnt . "</p>";
         if($userIsGuest){
             echo "<p class='likes'>Guests cannot like.</p>";
@@ -83,6 +83,7 @@ try {
         }
         if ($usflag) {
             echo "<form action='social-like.php' method='post' class='like-form'>";
+            echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
             echo "<input type='submit' value='Like!' class='like-button'>";
             echo "</form>";
         }
