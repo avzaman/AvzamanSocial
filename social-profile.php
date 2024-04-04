@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Feed</title>
-    <link rel="stylesheet" href="index.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/social-profile.css?v=<?php echo time(); ?>">
 </head>
 <body>
 <?php
@@ -58,12 +58,10 @@ try {
         $likes = $document['likes'];
         $likescnt = count($likes);
         $usflag = true;
-
+        echo "<div class='post'>";
         if ($userHomePage) {
-            echo "<div class='post'>";
             echo "<form action='social-delete.php' method='post'>";
         } else {
-            echo "<div class='post'>";
             echo "<form action='social-like.php' method='post'>";
         }
         echo "<div class='post-info'>Post by: <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a></div>";
