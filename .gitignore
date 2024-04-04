@@ -1,1 +1,5 @@
 plan.txt
+composer.json
+compser.lock
+vendor/
+vendor/*

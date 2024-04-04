@@ -1,0 +1,1 @@
+Install mongo php libraries to this project directory. The compser files have been added to the .gitignore.
