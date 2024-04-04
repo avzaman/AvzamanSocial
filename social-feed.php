@@ -19,8 +19,8 @@ $userIsGuest = false;
 if (isset($_COOKIE['user'])) {
     $username = $_COOKIE["user"];
     echo "<p class='logged-in'>Logged in as <span>
-        <a href='social-profile.php?profile=" . $username . "'>" . $username . "</a></span></p>";
-    echo "<a href='social-logout.php' class='logout'>Logout</a>";
+        <a href='social-profile.php?profile=" . $username . "'>" . $username . "</a></span>";
+    echo "<a href='social-logout.php' class='logout'>Logout</a></p>";
 
     // if a user is logged in allow them to create a post
     echo "<form action='social-post.php' method='post' class='post-form'>";
