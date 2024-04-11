@@ -42,15 +42,14 @@ try {
     } else if ($emailFlag) {
         echo "That email is already in use.";
     } else {
+        $currentDateTime = date('Y-m-d H:i:s');
         $insertOneResult = $collection->insertOne([
             'username' => $username,
             'email' => $useremail,
             'password' => $userpassword,
+            'datetime' => $currentDateTime,
         ]);
-        header("Location: index.html");
-
-        //printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
-        //var_dump($insertOneResult->getInsertedId());
+        header("Location: ../index.html");
     }
 
 } catch (Exception $e) {

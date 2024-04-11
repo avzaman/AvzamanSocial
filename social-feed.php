@@ -9,6 +9,14 @@
 </head>
 
 <body>
+    <p>
+        Welcome to the Feed!
+        This page shows all posts in the database 10 posts at a time.
+        Each post is stored in mongodb as a json object with several fields including unseen info such as datetime.
+        The replies are kept in the posts collection as subdocuments.
+        Piplining arguments using the mongodb PHP library is used in the php functions for reply appending.
+        Likes are stored as an array in individual post documents to track what users have liked what post.
+    </p>
     <?php
     require_once __DIR__ . '/vendor/autoload.php';
 

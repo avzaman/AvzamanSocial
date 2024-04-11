@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <p>
+        Welcome to the Profile Page!
+        This page shows all posts in the database 10 posts at a time for a specific user's profile.
+        Here, if the the current logged in user is viewing their own profile they may delete posts.
+        However, posts are never deleted permanently, they are archived and not displayed in the feed or profile pages anymore.
+    </p>
     <?php
     require_once __DIR__ . '/vendor/autoload.php';
 
