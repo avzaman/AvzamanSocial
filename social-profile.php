@@ -67,7 +67,8 @@
             $content = $document['content'];
             $likes = $document['likes'];
             $likescnt = count($likes);
-            $usflag = true;
+            $usflag = true; //checks if user has liked message
+
             echo "<div class='post'>";
             if ($userHomePage) {
                 echo "<form action='phpFuncs/social-delete.php' method='post'>";
@@ -80,6 +81,7 @@
             echo "<div class='likes'>Likes: " . $likescnt . "</div>";
             if ($userIsGuest) {
                 echo "<div class='guest-message'>Guests cannot like or delete posts.</div>";
+                $usflag = false;
             } else if ($userHomePage) {
                 $usflag = false;
                 echo "<input type='submit' value='DELETE' class='delete-button'>";
@@ -88,10 +90,11 @@
                     if ($username == $us) {
                         echo "<div class='liked-message'>Liked!</div>";
                         $usflag = false;
+                        break;
                     }
                 }
             }
-            if ($usflag || !$userHomePage) {
+            if ($usflag && !$userHomePage) {
                 echo "<input type='submit' value='Like!' class='like-button'>";
             }
             echo "</form>";
@@ -103,7 +106,7 @@
                     $replyCreator = $reply['reply-creator'];
                     $replyContent = $reply['reply-content'];
 
-                    echo "<br>user <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a> replied:<br>";
+                    echo "<br>user <a href='social-profile.php?profile=" . $replyCreator . "'>" . $replyCreator . "</a> replied:<br>";
                     echo $replyContent . "<br>";
                 }
                 echo "</div>";
