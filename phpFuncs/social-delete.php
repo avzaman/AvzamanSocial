@@ -36,7 +36,7 @@ try {
         exit();
     }
 
-    header("Location: social-profile.php?profile=" . $username);
+    header("Location: ../social-profile.php?profile=" . $username);
     exit();
 
     //printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
