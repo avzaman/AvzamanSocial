@@ -2,7 +2,7 @@
 //if regsiter successful, show "new user created <link to login page">
 //if failed, show email already has account, or username already used
 
-require_once __DIR__ . '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 //config.php holds the uri and db name and any login info needed for db operations
 include 'dbconfig.php';
