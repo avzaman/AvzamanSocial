@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '../vendor/autoload.php';
 
-$uri = "mongodb://localhost:27017";
-$db = 'CPS4881';
+//config.php holds the uri and db name and any login info needed for db operations
+include 'dbconfig.php';
 $col = 'Posts';
 
 $username = $_COOKIE["user"];
