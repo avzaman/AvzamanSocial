@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Feed</title>
     <link rel="stylesheet" href="css/social-feed.css?v=<?php echo time(); ?>">
-    <style>
-        .reply-dropdown {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -103,8 +98,6 @@
     
                 //if the post has replies make the dropdown
                 if (isset($document['replies'])) {
-                    echo '<a href="#" onclick="toggleDropdown()">Show/Hide Replies</a>';
-                    echo "<div id='replies' class='reply-dropdown'>";
                     foreach ($document['replies'] as $reply) {
                         $replyCreator = $reply['reply-creator'];
                         $replyContent = $reply['reply-content'];
@@ -113,18 +106,6 @@
                         echo $replyContent . "<br>";
                     }
                     echo "</div>";
-
-                    // javascript for dropdown link
-                    echo '<script>
-                    function toggleDropdown() {
-                      var dropdown = document.getElementById("replies");
-                      if (dropdown.style.display === "none") {
-                        dropdown.style.display = "block";
-                      } else {
-                        dropdown.style.display = "none";
-                      }
-                    }
-                    </script>';
 
                 }
 
