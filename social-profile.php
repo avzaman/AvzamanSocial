@@ -113,7 +113,7 @@
             //form to reply, logged in user from cookie will be used
             //no reply allowed if user is guest
             if (!$userIsGuest) {
-                echo "<form action='phpFuncs/social-reply.php?profile=" . $profileToLoad .  "method='post' class='reply-form'>";
+                echo "<form action='phpFuncs/social-reply.php?profile=" . $profileToLoad .  "' method='post' class='reply-form'>";
                 echo "<input type='text' name='reply-content' required><br>";
                 echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
                 echo "<input type='submit' value='Reply' class='reply-button'>";
