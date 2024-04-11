@@ -104,12 +104,12 @@
                 //if the post has replies make the dropdown
                 if (isset($document['replies'])) {
                     echo '<a href="#" onclick="toggleDropdown()">Show/Hide Replies</a>';
-                    echo "<div id='replies' class='reply-dropdown>'";
+                    echo "<div id='replies' class='reply-dropdown'>";
                     foreach ($document['replies'] as $reply) {
                         $replyCreator = $reply['reply-creator'];
                         $replyContent = $reply['reply-content'];
 
-                        echo "user <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a> replied:<br>";
+                        echo "<br>user <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a> replied:<br>";
                         echo $replyContent . "<br>";
                     }
                     echo "</div>";
