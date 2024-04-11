@@ -21,12 +21,9 @@ try {
 
     if($document){
         if($userpassword == $document['password']){
-            setcookie("user",$username, time()+3600);
+            setcookie("user",$username, time()+3600, "/");
             header("Location: ../social-feed.php");
             exit();
-
-            //echo "<br>Username: " . $document['username'];
-            //echo "<br>Email: " . $document['email'];
         }else{
             echo "Password incorrect!";
         }
