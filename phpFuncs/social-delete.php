@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 //config.php holds the uri and db name and any login info needed for db operations
 include 'dbconfig.php';
