@@ -22,7 +22,7 @@ try {
     if($document){
         if($userpassword == $document['password']){
             setcookie("user",$username, time()+3600);
-            header("Location: social-feed.php");
+            header("Location: ../social-feed.php");
             exit();
 
             //echo "<br>Username: " . $document['username'];
