@@ -111,7 +111,7 @@
                         $replyCreator = $reply['reply-creator'];
                         $replyContent = $reply['reply-content'];
 
-                        echo "<br>user <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a> replied:<br>";
+                        echo "<br>user <a href='social-profile.php?profile=" . $replyCreator . "'>" . $replyCreator . "</a> replied:<br>";
                         echo $replyContent . "<br>";
                     }
                     echo "</div>";
