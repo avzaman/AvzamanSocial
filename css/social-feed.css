@@ -48,7 +48,7 @@ body {
 }
 
 .post-form input[type="text"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     font-size: 1em;
     border: 2px solid #ccc;
@@ -92,8 +92,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     background-image: linear-gradient(45deg, #f12711, #f5af19, #f5af19, #f12711);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;

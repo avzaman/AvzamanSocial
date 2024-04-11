@@ -84,6 +84,7 @@
                         if ($username == $us) {
                             echo "<p class='liked-message'>Liked!</p>";
                             $usflag = false;
+                            break;
                         }
                     }
                 }
@@ -94,10 +95,9 @@
                     echo "</form>";
                 }
 
-                //here is where I will put replies, first dropdown to open all replies, followed by reply post
-    
-                //if the post has replies make the dropdown
+                //if the post has replies print them
                 if (isset($document['replies'])) {
+                    echo "<div class='replies'>";
                     foreach ($document['replies'] as $reply) {
                         $replyCreator = $reply['reply-creator'];
                         $replyContent = $reply['reply-content'];

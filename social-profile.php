@@ -91,11 +91,38 @@
                     }
                 }
             }
-            if ($usflag && !$userHomePage) {
+            if ($usflag || !$userHomePage) {
                 echo "<input type='submit' value='Like!' class='like-button'>";
             }
             echo "</form>";
+
+            //if the post has replies print them
+            if (isset($document['replies'])) {
+                echo "<div class='replies'>";
+                foreach ($document['replies'] as $reply) {
+                    $replyCreator = $reply['reply-creator'];
+                    $replyContent = $reply['reply-content'];
+
+                    echo "<br>user <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a> replied:<br>";
+                    echo $replyContent . "<br>";
+                }
+                echo "</div>";
+
+            }
+
+            //form to reply, logged in user from cookie will be used
+            //no reply allowed if user is guest
+            if (!$userIsGuest) {
+                echo "<form action='phpFuncs/social-reply.php?profile=" . $profileToLoad .  "method='post' class='reply-form'>";
+                echo "<input type='text' name='reply-content' required><br>";
+                echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
+                echo "<input type='submit' value='Reply' class='reply-button'>";
+                echo "</form>";
+            }
+            echo "</div>";
             echo "</div>"; // Close post div
+
+            
         }
 
         $totalDocs = $collection->countDocuments(['creator' => $profileToLoad]);
