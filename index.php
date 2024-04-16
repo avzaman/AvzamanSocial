@@ -24,7 +24,9 @@
         <form action="phpFuncs/social-login.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-            <input type="checkbox" name="stay-logged" name="stay-logged" value="log in for 30 days">
+            <br>
+            <input type="checkbox" name="stay-logged" name="stay-logged" value="true">
+            <label for="stay-logged">Stay logged in for 30 days.</label> 
             <input type="submit" value="Login">
         </form>
         <!--<div class="register-link">
