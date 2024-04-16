@@ -121,11 +121,7 @@
 
             // Draw the value above the bar
             $valueX = $x1 + ($barWidth / 2) - 10;
-            if ($valueY > $y1) {
-                $valueY = $y1 - 20;
-            } else {
-                $valueY = $y1 + 20;
-            }
+            $valueY = $y1 + 20;
             imagestring($image, 4, $valueX, $valueY, $value, $fontColor);
 
             $index++;
