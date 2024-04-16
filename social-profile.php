@@ -83,6 +83,11 @@
             }
             echo "<div class='post-info'>Post by: <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a></div>";
             echo "<div class='post-content'><span style='color: blue;'>" . $content . "</span></div>";
+
+            if(isset($document['image'])){
+                echo "<img src='img/posts/" . $document['image'] . "' alt='image in a post'>";
+            }
+
             echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
             echo "<div class='likes'>Likes: " . $likescnt . "</div>";
             if ($userIsGuest) {

@@ -5,3 +5,4 @@ vendor/
 vendor/*
 plan.txt
 phpFuncs/dbconfig.php
+img/posts*

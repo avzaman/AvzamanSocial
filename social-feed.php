@@ -37,6 +37,7 @@
         echo "<form action='phpFuncs/social-post.php' method='post' class='post-form'>";
         echo "<label for='textbox'>Enter post text:</label>";
         echo "<input type='text' name='content' required><br>";
+        echo "<input type='file' name='image'>";
         echo "<input type='submit' value='Post!'>";
         echo "</form>";
     } else {
@@ -83,6 +84,10 @@
                 echo "<div class='post'>";
                 echo "<p class='post-header'>Post by: <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a></p>";
                 echo "<p class='post-content'>" . $content . "</p>";
+
+                if(isset($document['image'])){
+                    echo "<img src='img/posts/" . $document['image'] . "' alt='image in a post'>";
+                }
 
                 echo "<p class='likes'>Likes: " . $likescnt . "</p>";
                 if ($userIsGuest) {//if user is guest then no like allowed
