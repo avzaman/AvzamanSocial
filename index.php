@@ -35,7 +35,7 @@
     </div>
     <div class="chart-container">
         <?php
-        include 'dbconfig.php';
+        include 'phpFuncs/dbconfig.php';
         // Connect to MongoDB
         $mongoClient = new MongoDB\Client($uri);
 
