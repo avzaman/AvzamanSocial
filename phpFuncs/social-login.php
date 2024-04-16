@@ -9,6 +9,12 @@ $col = 'Users';
 
 $username = $_POST["username"];
 $userpassword = $_POST["password"];
+if($_POST['stay-logged']){
+    $cookieLength = 2592000;
+}else{
+    $cookieLength = 3600;
+}
+
 
 try {
     $client = new MongoDB\Client($uri);
@@ -21,7 +27,7 @@ try {
 
     if($document){
         if($userpassword == $document['password']){
-            setcookie("user",$username, time()+3600, "/");
+            setcookie("user",$username, time()+$cookieLength, "/");
             header("Location: ../social-feed.php");
             exit();
         }else{
