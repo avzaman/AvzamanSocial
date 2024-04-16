@@ -40,13 +40,13 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
 
                     if(!rename($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
-                        $fileInfo = getimagesize($_FILES["image"]["tmp_name"]);
-                        echo "image size: " . $fileInfo . "<br>";
+                        var_dump($_POST);
+                        echo "<br>";
                         echo "Directory wanted: " . $destinationDirectory . $imagePath . "<br>";
                         echo "image is set but not moved<br>";
                         echo $fileExtension . "<br>";
                         echo $_FILES["image"]["tmp_name"] . "<br>";
-                        var_dump($_FILES['image']['error']);
+                        var_dump($_FILES);
                         exit();
                     }
 
