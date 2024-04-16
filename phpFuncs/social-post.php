@@ -38,8 +38,8 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     // Generate a unique filename
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
 
-                    if(!is_writable($destinationDirectory)){
-                        echo "image is set but dir is not writeable";
+                    if(!is_writable($_FILES["image"]["tmp_name"])){
+                        echo "image is set but tmp is not writeable";
                         exit();
                     }
 
