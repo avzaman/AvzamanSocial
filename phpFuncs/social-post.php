@@ -40,19 +40,10 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     // Generate a unique filename
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
 
-                    if(!is_writable($_FILES["image"]["tmp_name"])){
-                        echo "image is set but tmp is not writeable";
-                        exit();
-                    }
-
-                    if(!isset($_FILES["image"]["tmp_name"])){
-                        echo "image is set tmp_name isn't";
-                        exit();
-                    }
-
                     if(!rename($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
-                        echo "image is set but not moved\n";
-                        echo $fileExtension . "\n";
+                        echo "image is set but not moved<br>";
+                        echo $fileExtension . "<br>";
+                        echo $_FILES["image"]["tmp_name"] . "<br>";
                         var_dump($_FILES['image']['error']);
                         exit();
                     }
