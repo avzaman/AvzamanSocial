@@ -44,7 +44,7 @@
     } else {
         $userIsGuest = true;
         echo "<p class='guest'>Logged in as <span>GUEST</span></p>";
-        echo "<a href='index.html'>Login Page</a>";
+        echo "<a href='index.php'>Login Page</a>";
     }
 
     // next is the actual feed
