@@ -28,7 +28,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
         $currentDateTime = date('Y-m-d H:i:s');
 
         // if there is an image save it to images/posts
-        if(isset($_FILES['image']) && $_FILES['image']['error'] == 0){
+        if(isset($_FILES["image"])){
             // check if type is in dict of accepted types and less than 2mb
             if(in_array($fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION), $imgTypes) && $fileSize = $_FILES["fileToUpload"]["size"] < $maxFileSize){
                 // Specify the destination directory
