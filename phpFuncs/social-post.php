@@ -37,12 +37,18 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
 
                     // Generate a unique filename
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
+                    if(!is_writable($destinationDirectory)){
+                        echo "image is set but dir is not writeable";
+                        exit();
+                    }
 
                     if(!move_uploaded_file($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
                         echo "image is set but not moved";
                         exit();
                     }
+
                     chmod($destinationDirectory . $imagePath, 777);
+                    
                 }else{
                     echo "image is set but too large";
                     exit();
