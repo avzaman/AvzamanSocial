@@ -45,7 +45,7 @@
             echo 'GD is enabled.';
         }
         */
-        
+
         include 'phpFuncs/dbconfig.php';
         // Connect to MongoDB
         $mongoClient = new MongoDB\Client($uri);
@@ -76,7 +76,7 @@
         $data = array(
             "Users" => $numUsers,
             "Posts" => $numPosts,
-            "Image" => $numPostsWithImages,
+            "Images" => $numPostsWithImages,
             "Replies" => $totalReplies
         );
 
