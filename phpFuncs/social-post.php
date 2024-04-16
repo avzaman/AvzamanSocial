@@ -48,7 +48,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                         exit();
                     }
 
-                    if(!move_uploaded_file($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
+                    if(!rename($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
                         echo "image is set but not moved";
                         var_dump($_FILES['image']['error']);
                         exit();
