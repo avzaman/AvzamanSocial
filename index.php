@@ -48,12 +48,13 @@
 
         
         // debugging image
+        /*
         if (!extension_loaded('gd')) {
             echo 'GD is not enabled.';
         } else {
             echo 'GD is enabled.';
         }
-        
+        */
 
         include 'phpFuncs/dbconfig.php';
         // Connect to MongoDB
