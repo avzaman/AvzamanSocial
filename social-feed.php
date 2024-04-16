@@ -14,6 +14,7 @@
         This page shows all posts in the database 10 posts at a time.
         Each post is stored in mongodb as a json object with several fields including unseen info such as datetime.
         The replies are kept in the posts collection as subdocuments.
+        The images are saved on the server with a unique name, that name is stored as a string in the post's json to retrieve when loading posts.
         Piplining arguments using the mongodb PHP library is used in the php functions for reply appending.
         Likes are stored as an array in individual post documents to track what users have liked what post.
     </p>
