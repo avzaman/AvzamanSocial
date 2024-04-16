@@ -30,7 +30,6 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
         // if there is an image save it to images/posts
         if (isset($_FILES["image"])) {
             // check if type is in dict of accepted types and less than 2mb
-            echo "<img src='" . $_FILES["image"]["tmp_name"] . "' alt='image in a post'>";
             $fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
             if (in_array($fileExtension, $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
@@ -41,6 +40,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
 
                     if(!rename($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
+                        echo "Directory wanted: " . $destinationDirectory . $imagePath . "<br>";
                         echo "image is set but not moved<br>";
                         echo $fileExtension . "<br>";
                         echo $_FILES["image"]["tmp_name"] . "<br>";
