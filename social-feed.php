@@ -86,7 +86,7 @@
                 echo "<p class='post-content'>" . $content . "</p>";
 
                 if(isset($document['image'])){
-                    echo "<img src='img/posts/" . $document['image'] . "' width='480' height='720' alt='image in a post'>";
+                    echo "<img src='img/posts/" . $document['image'] . "' width='240' height='427' alt='image in a post'>";
                 }
 
                 echo "<p class='likes'>Likes: " . $likescnt . "</p>";

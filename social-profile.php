@@ -85,7 +85,7 @@
             echo "<div class='post-content'><span style='color: blue;'>" . $content . "</span></div>";
 
             if(isset($document['image'])){
-                echo "<img src='img/posts/" . $document['image'] . "' width='480' height='720' alt='image in a post'>";
+                echo "<img src='img/posts/" . $document['image'] . "' width='240' height='427' alt='image in a post'>";
             }
 
             echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
