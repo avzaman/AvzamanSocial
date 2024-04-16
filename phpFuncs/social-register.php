@@ -49,7 +49,7 @@ try {
             'password' => $userpassword,
             'datetime' => $currentDateTime,
         ]);
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     }
 
 } catch (Exception $e) {
