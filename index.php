@@ -10,7 +10,7 @@
 <body>
     <?php
         if(isset($_COOKIE['user'])){
-            header("Location: ../social-feed.php");
+            header("Location: social-feed.php");
             exit();
         }
     ?>
