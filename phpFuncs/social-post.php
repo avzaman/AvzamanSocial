@@ -31,14 +31,14 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
         if (isset($_FILES["image"])) {
             // check if type is in dict of accepted types and less than 2mb
             if (in_array($fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION), $imgTypes)) {
-                if ($fileSize = $_FILES["fileToUpload"]["size"] < $maxFileSize) {
+                if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
                     $destinationDirectory = "../img/posts/";
 
                     // Generate a unique filename
-                    $imagePath = $username . $currentDateTime . '_' . $_FILES["fileToUpload"]["name"];
+                    $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
 
-                    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destinationDirectory . $imagePath);
+                    move_uploaded_file($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath);
 
                     chmod($destinationDirectory . $imagePath, 777);
                 }else{
