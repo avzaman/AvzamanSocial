@@ -92,6 +92,7 @@
         // Define colors
         $barColor = imagecolorallocate($image, 50, 100, 200);
         $fontColor = imagecolorallocate($image, 0, 0, 0);
+        $whiteColor = imagecolorallocate($image, 255, 255, 255);
 
         // Find the maximum value in the data
         $maxValue = max($data);
@@ -119,10 +120,10 @@
             $labelY = $y2 + 20;
             imagestring($image, 4, $labelX, $labelY, $label, $fontColor);
 
-            // Draw the value below the bar
+            // Draw the value on bottom of the bar
             $valueX = $x1 + ($barWidth / 2) - 10;
             $valueY = $y2 - 40;
-            imagestring($image, 4, $valueX, $valueY, $value, $fontColor);
+            imagestring($image, 4, $valueX, $valueY, $value, $whiteColor);
 
             $index++;
         }
