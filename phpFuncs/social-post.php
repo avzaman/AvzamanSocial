@@ -41,12 +41,15 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destinationDirectory . $imagePath);
                 }else{
                     echo "image is set but too large";
+                    exit();
                 }
             } else {
                 echo "image is set but type not accepted";
+                exit();
             }
         } else {
             echo "image is not set";
+            exit();
         }
 
         $insertOneResult = $collection->insertOne([
