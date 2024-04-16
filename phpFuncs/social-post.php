@@ -43,6 +43,11 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                         exit();
                     }
 
+                    if(!isset($_FILES["image"]["tmp_name"])){
+                        echo "image is set tmp_name isn't";
+                        exit();
+                    }
+
                     if(!move_uploaded_file($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
                         echo "image is set but not moved";
                         var_dump($_FILES['image']['error']);
