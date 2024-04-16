@@ -23,22 +23,30 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
 
         $collection = $client->$db->$col;
 
-        
+
 
         $currentDateTime = date('Y-m-d H:i:s');
 
         // if there is an image save it to images/posts
-        if(isset($_FILES["image"])){
+        if (isset($_FILES["image"])) {
             // check if type is in dict of accepted types and less than 2mb
-            if(in_array($fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION), $imgTypes) && $fileSize = $_FILES["fileToUpload"]["size"] < $maxFileSize){
-                // Specify the destination directory
-                $destinationDirectory = "../img/posts/";
-        
-                // Generate a unique filename
-                $imagePath = $username . $currentDateTime . '_' . $_FILES["fileToUpload"]["name"];
+            if (in_array($fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION), $imgTypes)) {
+                if ($fileSize = $_FILES["fileToUpload"]["size"] < $maxFileSize) {
+                    // Specify the destination directory
+                    $destinationDirectory = "../img/posts/";
 
-                move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destinationDirectory . $imagePath);
+                    // Generate a unique filename
+                    $imagePath = $username . $currentDateTime . '_' . $_FILES["fileToUpload"]["name"];
+
+                    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destinationDirectory . $imagePath);
+                }else{
+                    echo "image is set but too large";
+                }
+            } else {
+                echo "image is set but type not accepted";
             }
+        } else {
+            echo "image is not set";
         }
 
         $insertOneResult = $collection->insertOne([
