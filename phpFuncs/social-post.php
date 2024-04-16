@@ -59,16 +59,16 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     chmod($newPath, 777);
 
                 }else{
-                    echo "image is set but too large";
-                    exit();
+                    //echo "image is set but too large";
+                    //exit();
                 }
             } else {
-                echo "image is set but type not accepted";
-                exit();
+                //echo "image is set but type not accepted";
+                //exit();
             }
         } else {
-            echo "image is not set";
-            exit();
+            //echo "image is not set";
+            //exit();
         }
 
         $insertOneResult = $collection->insertOne([
