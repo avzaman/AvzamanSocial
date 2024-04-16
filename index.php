@@ -72,10 +72,10 @@
         }
 
         $data = array(
-            "Number of Users" => $numUsers,
-            "Number of Posts" => $numPosts,
-            "Number of Posts with Images" => $numPostsWithImages,
-            "Total Number of Replies" => $totalReplies
+            "Users" => $numUsers,
+            "Posts" => $numPosts,
+            "Image Posts" => $numPostsWithImages,
+            "Replies" => $totalReplies
         );
 
         // Set the dimensions of the image
@@ -126,14 +126,15 @@
         }
 
         // Output the image
-        ob_clean();
-        header('Content-type: image/png');
-        imagepng($image);
+        // Save the image to a file
+        $imageFileName = 'img/bar_chart.png';
+        imagepng($image, $imageFileName);
 
         // Free up memory
         imagedestroy($image);
 
         ?>
+        <img src='img/bar_chart.png' alt="Bar Chart">
     </div>
 
 </body>
