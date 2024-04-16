@@ -126,6 +126,7 @@
         }
 
         // Output the image
+        ob_clean();
         header('Content-type: image/png');
         imagepng($image);
 
