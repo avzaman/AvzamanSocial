@@ -39,6 +39,8 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["fileToUpload"]["name"];
 
                     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $destinationDirectory . $imagePath);
+
+                    chmod($destinationDirectory . $imagePath, 0705);
                 }else{
                     echo "image is set but too large";
                     exit();
