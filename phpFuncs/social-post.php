@@ -27,6 +27,10 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
 
         $currentDateTime = date('Y-m-d H:i:s');
 
+        $currentDateTime = str_replace(' ','_',$currentDateTime);
+
+
+
         // if there is an image save it to images/posts
         if (isset($_FILES["image"])) {
             // check if type is in dict of accepted types and less than 2mb
