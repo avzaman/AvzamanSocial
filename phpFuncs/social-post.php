@@ -42,20 +42,19 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
 
                     $newPath = $destinationDirectory . $imagePath;
 
-                    /*
+                    
                     //debugging image uploads
                     if(!move_uploaded_file($_FILES["image"]["tmp_name"], $newPath)){
-                        var_dump($_POST);
+                        //var_dump($_POST);
                         echo "<br>";
-                        echo "Directory wanted: " . $destinationDirectory . $imagePath . "<br>";
+                        //echo "Directory wanted: " . $destinationDirectory . $imagePath . "<br>";
                         echo "image is set but not moved<br>";
                         echo $fileExtension . "<br>";
-                        echo $_FILES["image"]["tmp_name"] . "<br>";
-                        var_dump($_FILES);
+                        //echo $_FILES["image"]["tmp_name"] . "<br>";
+                        //var_dump($_FILES);
                         exit();
                     }
-                    */
-
+                    
                     chmod($newPath, 777);
 
                 }else{
