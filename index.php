@@ -101,7 +101,7 @@
         $spacing = 20;
         $startingX = 50;
         $startingY = 300;
-        $barHeightRatio = ($imageHeight-20) / $maxValue;
+        $barHeightRatio = $imageHeight / $maxValue;
 
         // Draw the bars and labels
         $index = 0;
@@ -121,7 +121,11 @@
 
             // Draw the value above the bar
             $valueX = $x1 + ($barWidth / 2) - 10;
-            $valueY = $y1 - 20;
+            if ($valueY > $y1) {
+                $valueY = $y1 - 20;
+            } else {
+                $valueY = $y1 + 20;
+            }
             imagestring($image, 4, $valueX, $valueY, $value, $fontColor);
 
             $index++;
