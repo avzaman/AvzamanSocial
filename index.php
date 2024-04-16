@@ -119,9 +119,9 @@
             $labelY = $y2 + 20;
             imagestring($image, 4, $labelX, $labelY, $label, $fontColor);
 
-            // Draw the value above the bar
+            // Draw the value below the bar
             $valueX = $x1 + ($barWidth / 2) - 10;
-            $valueY = $y1 + 20;
+            $valueY = $y2 - 40;
             imagestring($image, 4, $valueX, $valueY, $value, $fontColor);
 
             $index++;
