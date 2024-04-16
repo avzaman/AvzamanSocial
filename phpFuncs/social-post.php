@@ -38,8 +38,10 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     // Generate a unique filename
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
 
-                    move_uploaded_file($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath);
-
+                    if(!move_uploaded_file($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
+                        echo "image is set but not moved";
+                        exit();
+                    }
                     chmod($destinationDirectory . $imagePath, 777);
                 }else{
                     echo "image is set but too large";
