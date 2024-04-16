@@ -34,7 +34,7 @@
         echo "<a href='phpFuncs/social-logout.php' class='logout'>Logout</a><br></p>";
 
         // if a user is logged in allow them to create a post
-        echo "<form action='phpFuncs/social-post.php' method='post' class='post-form'>";
+        echo "<form action='phpFuncs/social-post.php' method='post' class='post-form' enctype='multipart/form-data'>";
         echo "<label for='textbox'>Enter post text:</label>";
         echo "<input type='text' name='content' required><br>";
         echo "<input type='file' name='image'>";
