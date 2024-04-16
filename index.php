@@ -37,13 +37,15 @@
         <?php
         require_once __DIR__ . '/vendor/autoload.php';
 
+        /*
+        // debugging image
         if (!extension_loaded('gd')) {
             echo 'GD is not enabled.';
         } else {
             echo 'GD is enabled.';
         }
-
-
+        */
+        
         include 'phpFuncs/dbconfig.php';
         // Connect to MongoDB
         $mongoClient = new MongoDB\Client($uri);
