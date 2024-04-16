@@ -33,7 +33,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
             if (in_array($fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION), $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
-                    $destinationDirectory = "../img/posts/";
+                    $destinationDirectory = __DIR__ . "/../img/posts/";
 
                     // Generate a unique filename
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
