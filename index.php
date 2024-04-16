@@ -74,7 +74,7 @@
         $data = array(
             "Users" => $numUsers,
             "Posts" => $numPosts,
-            "Image Posts" => $numPostsWithImages,
+            "Image" => $numPostsWithImages,
             "Replies" => $totalReplies
         );
 
@@ -99,7 +99,7 @@
         $spacing = 20;
         $startingX = 50;
         $startingY = 300;
-        $barHeightRatio = $imageHeight / $maxValue;
+        $barHeightRatio = ($imageHeight / $maxValue)-20;
 
         // Draw the bars and labels
         $index = 0;
