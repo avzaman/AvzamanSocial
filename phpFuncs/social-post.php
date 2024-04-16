@@ -34,7 +34,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
             if (in_array($fileExtension, $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
-                    $destinationDirectory = "posts/";
+                    $destinationDirectory = "../img/posts/";
 
                     // Generate a unique filename
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
@@ -52,7 +52,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                         exit();
                     }
 
-                    chmod($destinationDirectory . $imagePath, 777);
+                    chmod($newPath, 777);
 
                 }else{
                     echo "image is set but too large";
