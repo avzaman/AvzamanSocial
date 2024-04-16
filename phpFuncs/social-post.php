@@ -28,6 +28,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
         $currentDateTime = date('Y-m-d H:i:s');
 
         $currentDateTime = str_replace(' ','_',$currentDateTime);
+        $currentDateTime = str_replace(':','-',$currentDateTime);
 
 
 
