@@ -31,7 +31,8 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
         if (isset($_FILES["image"])) {
             // check if type is in dict of accepted types and less than 2mb
             echo "<img src='" . $_FILES["image"]["tmp_name"] . "' alt='image in a post'>";
-            if (in_array($fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION), $imgTypes)) {
+            $fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+            if (in_array($fileExtension, $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
                     $destinationDirectory = __DIR__ . "/../img/posts/";
@@ -50,7 +51,8 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                     }
 
                     if(!rename($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
-                        echo "image is set but not moved";
+                        echo "image is set but not moved\n";
+                        echo $fileExtension . "\n";
                         var_dump($_FILES['image']['error']);
                         exit();
                     }
