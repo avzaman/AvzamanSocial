@@ -23,14 +23,10 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
 
         $collection = $client->$db->$col;
 
-
-
         $currentDateTime = date('Y-m-d H:i:s');
-
+        // need to do this reformatting so imagfes upload
         $currentDateTime = str_replace(' ','_',$currentDateTime);
         $currentDateTime = str_replace(':','-',$currentDateTime);
-
-
 
         // if there is an image save it to images/posts
         if (isset($_FILES["image"])) {
@@ -46,6 +42,8 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
 
                     $newPath = $destinationDirectory . $imagePath;
 
+                    /*
+                    //debugging image uploads
                     if(!move_uploaded_file($_FILES["image"]["tmp_name"], $newPath)){
                         var_dump($_POST);
                         echo "<br>";
@@ -56,6 +54,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
                         var_dump($_FILES);
                         exit();
                     }
+                    */
 
                     chmod($newPath, 777);
 
