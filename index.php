@@ -101,7 +101,7 @@
         $spacing = 20;
         $startingX = 50;
         $startingY = 300;
-        $barHeightRatio = ($imageHeight / $maxValue)-20;
+        $barHeightRatio = ($imageHeight-20) / $maxValue;
 
         // Draw the bars and labels
         $index = 0;
