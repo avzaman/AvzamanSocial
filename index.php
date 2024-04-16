@@ -8,6 +8,12 @@
 </head>
 
 <body>
+    <?php
+        if(isset($_COOKIE['user'])){
+            header("Location: ../social-feed.php");
+            exit();
+        }
+    ?>
 
     <div class="login-container">
 
