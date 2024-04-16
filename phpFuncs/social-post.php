@@ -30,7 +30,7 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
         // if there is an image save it to images/posts
         if (isset($_FILES["image"])) {
             // check if type is in dict of accepted types and less than 2mb
-            echo "<img src='img/posts/" . $_FILES["image"]["tmp_name"] . "' alt='image in a post'>";
+            echo "<img src='" . $_FILES["image"]["tmp_name"] . "' alt='image in a post'>";
             if (in_array($fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION), $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
