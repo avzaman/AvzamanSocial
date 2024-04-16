@@ -34,12 +34,14 @@ if (strlen($content) > 0 && strlen($content) <= 250) {
             if (in_array($fileExtension, $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
-                    $destinationDirectory = __DIR__ . "/../img/posts/";
+                    $destinationDirectory = "posts/";
 
                     // Generate a unique filename
                     $imagePath = $username . $currentDateTime . '_' . $_FILES["image"]["name"];
 
-                    if(!rename($_FILES["image"]["tmp_name"], $destinationDirectory . $imagePath)){
+                    $newPath = $destinationDirectory . $imagePath;
+
+                    if(!move_uploaded_file($_FILES["image"]["tmp_name"], $newPath)){
                         var_dump($_POST);
                         echo "<br>";
                         echo "Directory wanted: " . $destinationDirectory . $imagePath . "<br>";

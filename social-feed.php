@@ -86,7 +86,7 @@
                 echo "<p class='post-content'>" . $content . "</p>";
 
                 if(isset($document['image'])){
-                    echo "<img src='img/posts/" . $document['image'] . "' alt='image in a post'>";
+                    echo "<img src='phpFuncs/posts/" . $document['image'] . "' alt='image in a post'>";
                 }
 
                 echo "<p class='likes'>Likes: " . $likescnt . "</p>";
