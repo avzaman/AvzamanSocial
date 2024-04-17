@@ -33,7 +33,7 @@ if (strlen($content) > 0 && strlen($content) <= 400) {
         if (isset($_FILES["image"])) {
             // check if type is in dict of accepted types and less than 2mb
             $fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            if (in_array($fileExtension, $imgTypes)) {
+            //if (in_array($fileExtension, $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
                     $destinationDirectory = "../img/posts/";
@@ -62,10 +62,10 @@ if (strlen($content) > 0 && strlen($content) <= 400) {
                     echo "image is set but too large";
                     exit();
                 }
-            } else {
-                echo "image is set but type not accepted";
-                exit();
-            }
+            //} else {
+            //    echo "image is set but type not accepted";
+            //    exit();
+            //}
         } else {
             echo "image is not set";
             exit();
