@@ -15,6 +15,10 @@ if($_POST['stay-logged']){
     $cookieLength = 3600;
 }
 
+if(strlen($username) > 30 || strlen($userpassword) > 30){
+    echo "input too long likely a hacker!";
+}
+
 
 try {
     $client = new MongoDB\Client($uri);
