@@ -18,7 +18,7 @@ $imgTypes = array(
 );
 $maxFileSize = 5 * 1024 * 1024; // 2 MB * 1024 KB/MB * 1024 bytes/KB
 
-if (strlen($content) > 0 && strlen($content) <= 400) {
+if (strlen($content) > 0 && strlen($content) <= 1000) {
     try {
         $client = new MongoDB\Client($uri);
 
@@ -26,14 +26,14 @@ if (strlen($content) > 0 && strlen($content) <= 400) {
 
         $currentDateTime = date('Y-m-d H:i:s');
         // need to do this reformatting so imagfes upload
-        $currentDateTime = str_replace(' ','_',$currentDateTime);
-        $currentDateTime = str_replace(':','-',$currentDateTime);
+        $currentDateTime = str_replace(' ', '_', $currentDateTime);
+        $currentDateTime = str_replace(':', '-', $currentDateTime);
 
         // if there is an image save it to images/posts
-        if (isset($_FILES["image"])) {
+        if (isset($_FILES["image"]) && !empty($_FILES['image']['tmp_name'])) {
             // check if type is in dict of accepted types and less than 2mb
             $fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            //if (in_array($fileExtension, $imgTypes)) {
+            if (in_array($fileExtension, $imgTypes)) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
                     $destinationDirectory = "../img/posts/";
@@ -43,9 +43,8 @@ if (strlen($content) > 0 && strlen($content) <= 400) {
 
                     $newPath = $destinationDirectory . $imagePath;
 
-                    
                     //debugging image uploads
-                    if(!move_uploaded_file($_FILES["image"]["tmp_name"], $newPath)){
+                    if (!move_uploaded_file($_FILES["image"]["tmp_name"], $newPath)) {
                         //var_dump($_POST);
                         echo "<br>";
                         //echo "Directory wanted: " . $destinationDirectory . $imagePath . "<br>";
@@ -55,17 +54,17 @@ if (strlen($content) > 0 && strlen($content) <= 400) {
                         //var_dump($_FILES);
                         exit();
                     }
-                    
+
                     chmod($newPath, 777);
 
-                }else{
+                } else {
                     echo "image is set but too large";
                     exit();
                 }
-            //} else {
-            //    echo "image is set but type not accepted";
-            //    exit();
-            //}
+            } else {
+                echo "image is set but type not accepted";
+                exit();
+            }
         } else {
             echo "image is not set";
             exit();
