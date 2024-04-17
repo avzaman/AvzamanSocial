@@ -66,8 +66,8 @@ if (strlen($content) > 0 && strlen($content) <= 1000) {
                 exit();
             }
         } else {
-            echo "image is not set";
-            exit();
+            //echo "image is not set";
+            //exit();
         }
 
         $insertOneResult = $collection->insertOne([
