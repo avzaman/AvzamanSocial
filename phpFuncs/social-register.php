@@ -25,22 +25,27 @@ try {
     //check if uname free
     $document = $collection->findOne(['username' => $username]);
 
-    if ($document) {
+    if ($document || strlen($username) > 30) {
         $unameFlag = true;
     }
 
     //check if email free
     $document = $collection->findOne(['email' => $useremail]);
 
-    if ($document) {
+    if ($document || strlen($useremail) > 30) {
         $emailFlag = true;
+    }
+
+    if (strlen($userpassword) > 30) {
+        echo "Password too long";
+        exit();
     }
 
     //if both free insert
     if ($unameFlag) {
-        echo "Username is taken!";
+        echo "Username is taken or is too long!";
     } else if ($emailFlag) {
-        echo "That email is already in use.";
+        echo "Email is already in use or is too long.";
     } else {
         $currentDateTime = date('Y-m-d H:i:s');
         $insertOneResult = $collection->insertOne([

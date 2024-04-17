@@ -18,7 +18,7 @@ $imgTypes = array(
 );
 $maxFileSize = 5 * 1024 * 1024; // 2 MB * 1024 KB/MB * 1024 bytes/KB
 
-if (strlen($content) > 0 && strlen($content) <= 250) {
+if (strlen($content) > 0 && strlen($content) <= 400) {
     try {
         $client = new MongoDB\Client($uri);
 
