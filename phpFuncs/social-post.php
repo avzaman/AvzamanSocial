@@ -32,8 +32,8 @@ if (strlen($content) > 0 && strlen($content) <= 1000) {
         // if there is an image save it to images/posts
         if (isset($_FILES["image"]) && !empty($_FILES['image']['tmp_name'])) {
             // check if type is in dict of accepted types and less than 2mb
-            $fileExtension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-            if (in_array($fileExtension, $imgTypes)) {
+            $image_info = getimagesize($_FILES['image']['tmp_name']);
+            if ($image_info !== false) {
                 if ($fileSize = $_FILES["image"]["size"] < $maxFileSize) {
                     // Specify the destination directory
                     $destinationDirectory = "../img/posts/";
