@@ -40,8 +40,8 @@ by having a consistent header on each page. -->
 
                 echo "<li><a href='phpFuncs/social-logout.php'>Logout</a></li>";
             } else {
-                echo "<li><a href='index.html'>Login</a></li>
-                    <li><a href='social-register.php'>Register</a></li>";
+                echo "<li><a href='index.php'>Login</a></li>
+                    <li><a href='social-register.html'>Register</a></li>";
             }
             ?>
         </ul>
