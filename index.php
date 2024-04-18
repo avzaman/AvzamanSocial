@@ -35,9 +35,9 @@
             <label for="stay-logged">Stay logged in for 30 days.</label> 
             <input type="submit" value="Login">
         </form>
-        <!--<div class="register-link">
+        <div class="register-link">
             <a href="social-register.html">Register</a>
-        </div>-->
+        </div>
         <div class="guest-login">
             <a href="social-feed.php">Login as Guest</a>
         </div>
