@@ -1,0 +1,9 @@
+added meyerweb css reset sheet in css/reset.css
+https://meyerweb.com/eric/tools/css/reset/
+
+created "social-header.php"
+cut HTML header from social-feed.php and hid it within "header.php" and linked header.php in the beginning of social-feed.php
+
+
+created "nav.css"
+added very basic "try again" button to the "Password Incorrect!" (social-login.php line32)
