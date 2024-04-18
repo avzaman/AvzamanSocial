@@ -81,7 +81,7 @@ try {
             } else {
                 foreach ($likes as $us) { //if the logged in user has liked the post switch the flag
                     if ($username == $us) {
-                        echo "<form action='phpFuncs/social-unlike.php' method='post' class='like-form' target='_blank'>";
+                        echo "<form action='phpFuncs/social-unlike.php' method='post' class='like-form'>";
                         echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
                         echo "<input type='submit' value='Unlike!' class='like-button'>";
                         echo "</form>";
