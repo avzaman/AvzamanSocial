@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Feed</title>
-    <link rel="stylesheet" href="css/social-profile.css?v=<?php echo time(); ?>">
-</head>
-
-<body>
-    <p>
+<?php
+    include_once 'social-header.php';
+?>
+    <p class="intro">
         Welcome to the Profile Page!
         This page shows all posts in the database 10 posts at a time for a specific user's profile.
         Here, if the the current logged in user is viewing their own profile they may delete posts.
@@ -23,15 +15,12 @@
 
     $col = 'Posts';
 
-    echo "<a href='social-feed.php'>Back to main feed</a><br><br>";
-
     $profileToLoad = $_GET["profile"];
     $userIsGuest = false;
     $userHomePage = false;
 
     if (isset($_COOKIE["user"])) {
         $username = $_COOKIE["user"];
-        echo "<div class='logged-in'>Logged in as <span style='color: green;'>" . $username . "</span></div>";
         if ($username == $profileToLoad) {
             $userHomePage = true;
             echo "<div class='user-home-page'>Visiting your own home page!</div><br>";
@@ -40,7 +29,6 @@
         }
     } else {
         $userIsGuest = true;
-        echo "<div class='logged-in'>Logged in as <span style='color: orange;'>GUEST</span></div><br>";
         echo "<div class='user-profile'>Visiting <span style='color: green;'>" . $profileToLoad . "'s</span> home page!</div><br>";
     }
 
