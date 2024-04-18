@@ -9,13 +9,6 @@ a {
     text-decoration: none;
     color: inherit;
 }
-/* 
-.teko-<uniquifier> {
-    font-family: "Teko", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-  } */
 
 .site-title {
     display: flex;
@@ -28,27 +21,34 @@ a {
     font-family: "Teko", sans-serif;
     font-weight: 400;
     font-size: 5rem;
-
+    transition: all .4s;
 }
 
-.site-title :hover {
-    /* font-size: 5rem; */
+.site-title:hover {
+    transform: translateY(-2px);
+    transform: scale(1.02);
     color: gray;
 }
 
+
+
 .nav-links {
     display: flex;
-    flex-direction: row;
-    padding-bottom: 1rem;
-    gap:20px;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20vw;
     color: white;
     font-family: "Teko", sans-serif;
-    font-weight: 200;
     font-size: 2rem;
+    text-align: center;
+    
 }
 
-.nav-links :hover{
-    font-size: 2.1rem;
+.nav-links li {
+    transition: all .4s;
+}
+
+.nav-links li:hover{
+    transform: scale(1.02);
+    transform: translateY(-2px);
     color:gray;
 }
