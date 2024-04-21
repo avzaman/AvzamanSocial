@@ -1,15 +1,7 @@
 <?php
 include_once 'social-header.php';
 ?>
-<p class="intro">
-    Welcome to the Feed!<br>
-    This page shows all posts in the database 10 posts at a time.<br>
-    Each post is stored in mongodb as a json object with several fields including unseen info such as datetime.<br>
-    The replies are kept in the posts collection as subdocuments.<br>
-    The images are saved on the server with a unique name, that name is stored as a string in the post's json to retrieve when loading posts. <br>
-    Piplining arguments using the mongodb PHP library is used in the php functions for reply appending.
-    Likes are stored as an array in individual post documents to track what users have liked what post.
-</p>
+
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -19,28 +11,17 @@ include 'phpFuncs/dbconfig.php';
 $col = 'Posts';
 
 // most users will be guests observing the functions
-$userIsGuest = false;
-if (isset($_COOKIE['user'])) {
-    $username = $_COOKIE["user"];
+
+if ($logged_in) {
     // if a user is logged in allow them to create a post
     echo "<form action='phpFuncs/social-post.php' method='post' class='post-form' enctype='multipart/form-data'>";
-    echo "<label for='textbox'>Enter post text:</label>";
-    echo "<input type='text' name='content' required><br>";
+    echo "<input type='text' name='content' placeholder='Type your post here...' required><br>";
     echo "<input type='file' name='image'>";
     echo "<input type='submit' value='Post!'>";
     echo "</form>";
 }
 
-// next is the actual feed
-// check what page we're on to offset query
-$postsPerPage = 10;
-$pageNum = 0;
-if (isset($_GET['pageNum'])) {
-    $pageNum = $_GET['pageNum'];
-}
-
 try {
-
 
     $client = new MongoDB\Client($uri);
 
@@ -64,7 +45,7 @@ try {
             $content = $document['content'];
             $likes = $document['likes'];
             $likescnt = count($likes);
-            $usflag = true; //this flag checks if logged in user has liked a messege
+            $user_liked = false; //this flag checks if logged in user has liked a messege
 
             echo "<div class='post'>";
             echo "<p class='post-header'>Post by: <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a></p>";
@@ -76,8 +57,8 @@ try {
 
             echo "<p class='likes'>Likes: " . $likescnt . "</p>";
             if ($userIsGuest) { //if user is guest then no like allowed
-                echo "<p class='likes'>Guests cannot like.</p>";
-                $usflag = false;
+                echo "<p class='likes'>Guests cannot like posts.</p>";
+                $user_liked = true;
             } else {
                 foreach ($likes as $us) { //if the logged in user has liked the post switch the flag
                     if ($username == $us) {
@@ -85,12 +66,12 @@ try {
                         echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
                         echo "<input type='submit' value='Unlike!' class='like-button'>";
                         echo "</form>";
-                        $usflag = false;
+                        $user_liked = true;
                         break;
                     }
                 }
             }
-            if ($usflag) { //if the logged in user hasn't liked the post then print like buttoon
+            if (!$user_liked) { //if the logged in user hasn't liked the post then print like buttoon
                 echo "<form action='phpFuncs/social-like.php' method='post' class='like-form'>";
                 echo "<input type='hidden' name='postid' value='" . $document['_id'] . "'>";
                 echo "<input type='submit' value='Like!' class='like-button'>";

@@ -25,6 +25,19 @@ by having a consistent header on each page. -->
     <link rel="stylesheet" href="css/reset.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="css/nav.css?v=<?php echo time(); ?>">
 
+    <?php
+    $postsPerPage = 10;
+    if (isset($_GET['pageNum'])) {
+        $pageNum = $_GET['pageNum'];
+    } else $pageNum = 0;
+    $logged_in = false;
+    $userIsGuest = true;
+    if (isset($_COOKIE['user'])) {
+        $logged_in = true;
+        $userIsGuest = false;
+        $username = $_COOKIE["user"];
+    }
+    ?>
 </head>
 
 <body>
@@ -34,15 +47,14 @@ by having a consistent header on each page. -->
 
 
             <?php
-            if (isset($_COOKIE['user'])) {
-                $username = $_COOKIE["user"];
+            if ($logged_in) {
                 echo "<li><a href='social-profile.php?profile=" . $username . "'>My Profile</a></li>";
-
                 echo "<li><a href='phpFuncs/social-logout.php'>Logout</a></li>";
             } else {
                 echo "<li><a href='index.php'>Login</a></li>
                     <li><a href='social-register.html'>Register</a></li>";
             }
             ?>
+            <li><a href='about.php'>About</a></li>
         </ul>
     </nav>

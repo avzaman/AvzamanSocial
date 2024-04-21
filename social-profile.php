@@ -1,12 +1,7 @@
 <?php
     include_once 'social-header.php';
 ?>
-    <p class="intro">
-        Welcome to the Profile Page!
-        This page shows all posts in the database 10 posts at a time for a specific user's profile.
-        Here, if the the current logged in user is viewing their own profile they may delete posts.
-        However, posts are never deleted permanently, they are archived and not displayed in the feed or profile pages anymore.
-    </p>
+    
     <?php
     require_once __DIR__ . '/vendor/autoload.php';
 
@@ -16,27 +11,14 @@
     $col = 'Posts';
 
     $profileToLoad = $_GET["profile"];
-    $userIsGuest = false;
     $userHomePage = false;
 
-    if (isset($_COOKIE["user"])) {
-        $username = $_COOKIE["user"];
-        if ($username == $profileToLoad) {
-            $userHomePage = true;
-            echo "<div class='user-home-page'>Visiting your own home page!</div><br>";
-        } else {
-            echo "<div class='user-profile'>Visiting <span style='color: green;'>" . $profileToLoad . "'s</span> home page!</div><br>";
-        }
-    } else {
-        $userIsGuest = true;
-        echo "<div class='user-profile'>Visiting <span style='color: green;'>" . $profileToLoad . "'s</span> home page!</div><br>";
+    if ($logged_in && $username == $profileToLoad) {
+        $userHomePage = true;
     }
+    
+    echo "<div class='user-profile'><span style='color: green;'>" . $profileToLoad . "'s</span> home page!</div><br>";
 
-    $postsPerPage = 10;
-    $pageNum = 0;
-    if (isset($_GET['pageNum'])) {
-        $pageNum = $_GET['pageNum'];
-    }
 
     try {
         $client = new MongoDB\Client($uri);
@@ -61,7 +43,7 @@
             $content = $document['content'];
             $likes = $document['likes'];
             $likescnt = count($likes);
-            $usflag = true; //checks if user has liked message
+            $user_liked = false; //checks if user has liked message, false by default
 
             echo "<div class='post'>";
             if ($userHomePage) {
@@ -80,20 +62,20 @@
             echo "<div class='likes'>Likes: " . $likescnt . "</div>";
             if ($userIsGuest) {
                 echo "<div class='guest-message'>Guests cannot like or delete posts.</div>";
-                $usflag = false;
+                $user_liked = true;
             } else if ($userHomePage) {
-                $usflag = false;
+                $user_liked = true;
                 echo "<input type='submit' value='DELETE' class='delete-button'>";
             } else {
                 foreach ($likes as $us) {
                     if ($username == $us) {
                         echo "<div class='liked-message'>Liked!</div>";
-                        $usflag = false;
+                        $user_liked = true;
                         break;
                     }
                 }
             }
-            if ($usflag && !$userHomePage) {
+            if (!$user_liked && !$userHomePage) {
                 echo "<input type='submit' value='Like!' class='like-button'>";
             }
             echo "</form>";
@@ -145,5 +127,4 @@
     }
     ?>
 </body>
-
 </html>
