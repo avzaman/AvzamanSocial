@@ -49,7 +49,8 @@ try {
 
             echo "<div class='post'>";
             echo "<p class='post-header'>Post by: <a href='social-profile.php?profile=" . $creator . "'>" . $creator . "</a></p>";
-            echo "<p class='post-content'>" . $content . "</p>";
+            echo "<p class='post-content'>"; 
+            echo htmlspecialchars($content) . "</p>";
 
             if (isset($document['image'])) {
                 echo "<img src='img/posts/" . $document['image'] . "' width='240' height='427' alt='image in a post'>";
