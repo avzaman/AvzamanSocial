@@ -6,3 +6,4 @@ vendor/*
 plan.txt
 phpFuncs/dbconfig.php
 img/posts*
+AWS-SETUP-GUIDE.html
